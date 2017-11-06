@@ -1,4 +1,4 @@
-# egg-onefile
+# vue-permission
 
 [![NPM version][npm-image]][npm-url]
 [![build status][travis-image]][travis-url]
@@ -20,47 +20,27 @@
 [download-image]: https://img.shields.io/npm/dm/egg-onefile.svg?style=flat-square
 [download-url]: https://npmjs.org/package/egg-onefile
 
-This plugin will serve for dynamic file output.
 
 ## Install
 
 ```bash
-$ npm i egg-onefile --save
+$ npm i vue-permission --save
 ```
 
 ## Usage
 
 ```js
-// {app_root}/config/plugin.js
-exports.onefile = {
-  enable: true,
-  package: 'egg-onefile',
-};
-```
+import VuePermission 'vue-permission';
 
-## Configuration
+Vue.use(VuePermission);
 
-```js
-// {app_root}/config/config.default.js
-exports.onefile = {
-  match(ctx) {
-    return ctx.url === '/';
-  },
-  headers: {
-    'Content-Type': 'text/html; charset=utf-8',
-    'Cache-Control': 'no-store',
-  },
-  replace: {
-    '${hello}': 'hello',
-  },
-  * before() {
-    // you can do something before
-  }
-  path: path.join(__dirname, '../app/public/index.html'),
-};
-```
+Vue.permission.authorize({'create': true, 'del': false});
 
-see [config/config.default.js](https://github.com/ValueFE/egg-onefile/blob/master/config/config.default.js) for more detail.
+Vue.permission.hasPermission('del'); // console.log(false);
+
+// if u don't has permission the button will not show. and style display none.
+<button v-permission='create'></button>
+````
 
 ## Example
 
@@ -68,7 +48,7 @@ see [config/config.default.js](https://github.com/ValueFE/egg-onefile/blob/maste
 
 ## Questions & Suggestions
 
-Please open an issue [here](https://github.com/ValueFE/egg-onefile/issues).
+Please open an issue [here](https://github.com/ValueFE/vue-permission/issues).
 
 ## License
 
