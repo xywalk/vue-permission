@@ -1,6 +1,6 @@
 {
   "name": "vue-permission",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "module": "./lib/index.js",
   "description": "A Simple Permission Plugin for Vue.",
   "repository": "git@github.com:ValueFE/vue-permission.git",
